@@ -1,0 +1,85 @@
+Microsoft Windows [Version 10.0.26200.7840]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\LENOVO>CD C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.002 sec)
+
+MariaDB [(none)]> create database pertemuan_1;
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| pertemuan_1        |
+| phpmyadmin         |
+| test               |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [(none)]> use pertemuan_1;
+Database changed
+MariaDB [pertemuan_1]> create table mahasiswa (
+    -> NPM char(9) NOT NULL PRIMARY KEY,
+    -> Nama varchar(25) NOT NULL,
+    -> Alamat varchar(50) NOT NULL,
+    -> Email varchar(25),
+    -> No
+    -> No_hp char(12)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'char(12)
+)' at line 7
+MariaDB [pertemuan_1]> create table mahasiswa (
+    -> NPM char(9) NOT NULL PRIMARY KEY,
+    -> Nama varchar(25) NOT NULL,
+    -> Alamat varchar(50) NOT NULL,
+    -> Email varchar(25),
+    -> No_hp char(12)
+    -> );
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [pertemuan_1]> show tables;
++-----------------------+
+| Tables_in_pertemuan_1 |
++-----------------------+
+| mahasiswa             |
++-----------------------+
+1 row in set (0.002 sec)
+
+MariaDB [pertemuan_1]> desc mahasiswa;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| NPM    | char(9)     | NO   | PRI | NULL    |       |
+| Nama   | varchar(25) | NO   |     | NULL    |       |
+| Alamat | varchar(50) | NO   |     | NULL    |       |
+| Email  | varchar(25) | YES  |     | NULL    |       |
+| No_hp  | char(12)    | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.010 sec)
+
+MariaDB [pertemuan_1]>
